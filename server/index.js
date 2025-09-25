@@ -24,7 +24,7 @@ function getAuthHeaders() {
   return {
     'x-client-id': appId,
     'x-client-secret': secret,
-    'x-api-version': '2025-01-01',
+    'x-api-version': '2022-09-01',
     'Content-Type': 'application/json'
   };
 }
@@ -94,7 +94,7 @@ app.post('/api/create-order', async (req, res) => {
         customer_phone: customer_phone || '9999999999'
       },
       order_meta: {
-        return_url: 'https://qirpl.icarerobotics.com/web/index.html',
+        return_url: 'https://qirpl.icarerobotics.com/web/index.html?order_id={order_id}',
         notify_url: ''
       }
     };

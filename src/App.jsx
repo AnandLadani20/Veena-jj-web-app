@@ -45,8 +45,10 @@ function App() {
             <Route path="/" element={<PrivateRoute><Plans /></PrivateRoute>} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/success" element={<PrivateRoute><Success /></PrivateRoute>} />
-            <Route path="/failure" element={<PrivateRoute><Failure /></PrivateRoute>} />
+            {/* <Route path="/success" element={<PrivateRoute><Success /></PrivateRoute>} />
+            <Route path="/failure" element={<PrivateRoute><Failure /></PrivateRoute>} /> */}
+            <Route path="/success" element={<Success />} />
+            <Route path="/failure" element={<Failure />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </div>

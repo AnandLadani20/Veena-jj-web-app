@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useSearchParams, Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
-const API_BASE = 'http://localhost:5000';
+const API_BASE = 'https://veena-jj-backend.vercel.app';
 
 export default function Success() {
   const [params] = useSearchParams()

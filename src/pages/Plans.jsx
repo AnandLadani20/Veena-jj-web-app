@@ -14,7 +14,7 @@ import MilitaryTechIcon from '@mui/icons-material/MilitaryTech'
 import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium'
 import CardMembershipIcon from '@mui/icons-material/CardMembership'
 
-const API_BASE = 'http://localhost:5000';
+const API_BASE = 'https://veena-jj-backend.vercel.app';
 
 const plans = [
   { id: 'bronze', title: 'Bronze Subscription (VeenaJJ - Pro)', subtitle: 'Unlimited Monthly Access to VeenaJJ Music', price: 399, icon: <MilitaryTechIcon sx={{ color: '#d2691e' }} /> },

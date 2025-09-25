@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
@@ -16,6 +16,8 @@ import FacebookIcon from '@mui/icons-material/Facebook'
 import axios from 'axios'
 import { useAuth } from '../context/AuthContext.jsx'
 
+const API_BASE = 'https://veena-jj-backend.vercel.app';
+
 export default function Login() {
   const navigate = useNavigate()
   const { login } = useAuth()
@@ -25,21 +27,27 @@ export default function Login() {
   const [error, setError] = useState('')
   const [remember, setRemember] = useState(false)
 
+  useEffect(() => {
+    login('guest-token', { id: 'guest', name: 'Guest User', email: 'guest@example.com' })
+  }, [])
+
   const onSubmit = async (e) => {
     e.preventDefault()
     setError('')
     try {
       setLoading(true)
       // Allow quick access without credentials
-      if (!email && !password) {
-        login('guest-token', { id: 'guest', name: 'Guest User', email: 'guest@example.com' })
-        navigate('/')
-        return
-      }
-      const { data } = await axios.post('http://localhost:5000/api/auth/login', { email, password })
-      if (!data?.success) throw new Error(data?.message || 'Login failed')
-      login(data.token, data.user)
+      // if (!email && !password) {
+      //   login('guest-token', { id: 'guest', name: 'Guest User', email: 'guest@example.com' })
+      //   navigate('/')
+      //   return
+      // }
+      login('guest-token', { id: 'guest', name: 'Guest User', email: 'guest@example.com' })
       navigate('/')
+      // const { data } = await axios.post(`${API_BASE}/api/auth/login`, { email, password })
+      // if (!data?.success) throw new Error(data?.message || 'Login failed')
+      // login(data.token, data.user)
+      // navigate('/')
     } catch (err) {
       setError(err?.response?.data?.message || err.message)
     } finally {

@@ -94,7 +94,7 @@ app.post('/api/create-order', async (req, res) => {
         customer_phone: customer_phone || '9999999999'
       },
       order_meta: {
-        return_url: 'https://qirpl.icarerobotics.com/web/index.html?order_id={order_id}',
+        return_url: 'https://veena-jj-web-app.vercel.app/success?order_id={order_id}',
         notify_url: ''
       }
     };
